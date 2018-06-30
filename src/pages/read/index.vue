@@ -1,5 +1,5 @@
 <template>
-  <div class="read-container"></div>
+  <div class="read-container">读心情</div>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
 
 <style lang="less">
 .read-container {
-  
+
 }
 </style>
 
