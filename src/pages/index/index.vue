@@ -4,11 +4,10 @@
     <!-- <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
     </div> -->
-    <!-- <img src="../../../static/timg.jpg" class="index-bg" :style="{width: bgWidth, height: bgHeight}"> -->
-    <div class="index-theme">
-      <div type="text" class="theme-border"></div>
-      <span class="theme-badge"></span>
+    <div class="theme-content">
+      <thememain></thememain>
     </div>
+
     <div class="index-menu">
       <ul>
         <li class="menu-item letter">
@@ -27,6 +26,7 @@
 <script>
 import card from '@/components/card'
 import WxFooter from '@/components/WxFooter'
+import thememain from '@/components/themeMain'
 
 export default {
   data () {
@@ -39,7 +39,7 @@ export default {
   },
 
   components: {
-    card, WxFooter
+    card, WxFooter, thememain
   },
 
   methods: {
@@ -82,7 +82,6 @@ export default {
 
 <style lang="less" scoped>
 .index-container {
-  /* background-image: url('../../../static/timg.jpg'); */
   background-color: black;
   position: relative;
 }
@@ -99,29 +98,10 @@ export default {
   border-radius: 50%;
 }
 
-.index-theme {
+.theme-content {
   width: 100%;
   position: absolute;
   bottom: 40%;
-  .theme-border {
-    width: 72%;
-    height: 72rpx;
-    margin: 0 auto;
-    border: 1px solid rgba(255,255,255,0.6);
-    border-radius: 16rpx;
-  }
-  .theme-badge {
-    position: absolute;
-    bottom: -16rpx;
-    right: 120rpx;
-    display: block;
-    width: 12rpx;
-    height: 8rpx;
-    border: 6px solid #000;
-    border-bottom-left-radius: 200%;
-    border-bottom-right-radius: 200%;
-    background-color: rgba(200,200,200,0.5);
-  }
 }
 
 .index-menu {
