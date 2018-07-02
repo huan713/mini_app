@@ -11,7 +11,8 @@
 </template>
 
 <script>
-const KEEP_TIME = 5000
+const KEEP_TIME = 1000
+const BLINK_INTERVAL = 600
 const ADD_INTERVAL = 200
 const DEL_INTERVAL = 400
 export default {
@@ -23,7 +24,8 @@ export default {
         '坚持', '远方', '情怀', '小确幸', '希望', '执着', '期待', '痛并快乐', '不再犹豫'
       ],
       cursorLeft: '130rpx',
-      adding: false
+      adding: false,
+      loop: false
     }
   },
   mounted () {
@@ -41,7 +43,7 @@ export default {
       setTimeout(() => {
         this.showCursor = !this.showCursor
         this.blink()
-      }, 600)
+      }, BLINK_INTERVAL)
     },
     // 改变文字
     changeWords () {
@@ -56,7 +58,7 @@ export default {
       const index = Math.floor(Math.random() * len)
       let words = this.wordsList[index]
       if (words === this.showWords) {
-        this.chooseWord()
+        return this.chooseWord()
       } else {
         return words
       }
@@ -81,13 +83,16 @@ export default {
             this.blink()
           }
 
-          setTimeout(() => {
-            this._delete()
-          }, KEEP_TIME)
+          if (this.loop) {
+            setTimeout(() => {
+              this._delete()
+            }, KEEP_TIME)
+          }
         }
       }, ADD_INTERVAL)
     },
     _delete () {
+      let words = this.chooseWord()
       let timer = setInterval(() => {
         let wordArr = this.showWords.split('')
         wordArr.pop()
@@ -98,7 +103,7 @@ export default {
           timer = null
 
           setTimeout(() => {
-            this.changeWords()
+            this._add(words)
           }, 500)
         }
       }, DEL_INTERVAL)

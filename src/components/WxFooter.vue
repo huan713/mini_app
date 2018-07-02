@@ -1,14 +1,17 @@
 <template>
   <div class="wx-footer">
-    <div
-      :style="{width: itemWidth}"
-      class="wx-footer-item"
-      :class="{active: activeItem === index}"
-      v-for="(item, index) in items"
-      :key="item.label"
-      @click="itemClick(index, item.url)">
-      <text class="fa wx-footer-icon" :class="item.icon"></text>
-      <span class="wx-footer-text">{{item.label}}</span>
+    <div class="wx-footer-item active" :class="{active: activeItem === index}">
+      <text class="fa wx-footer-icon fa-heartbeat"></text>
+      <span class="wx-footer-text">分享</span>
+    </div>
+    <div class="wx-footer-item" :class="{active: activeItem === index}">
+      <text class="fa wx-footer-icon fa-user"></text>
+      <span class="wx-footer-text">我的</span>
+    </div>
+    <div class="wx-footer-main">
+      <div class="text">
+        +
+      </div>
     </div>
   </div>
 </template>
@@ -21,22 +24,7 @@ export default {
       activeItem: -1
     }
   },
-  props: {
-    items: Array
-  },
-  computed: {
-    itemWidth () {
-      return 100 / this.items.length + '%'
-    }
-  },
-  methods: {
-    itemClick (index, url) {
-      this.activeItem = index
-      if (url) {
-        wx.navigateTo({ url })
-      }
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -47,15 +35,19 @@ export default {
   width: 100%;
   padding: 16rpx 0;
   border-top: 1px solid #e5e5e5;
-  color: #4c4c4c;
+  color: #8c8c8c;
   background-color: #f5f5f5;
   &-item {
-    float: left;
+    display: inline-block;
+    width: 43%;
     text-align: center;
-    font-size: 24rpx;
+    font-size: 20rpx;
     &.active {
-      color: #409EFF;
+      color: #2d8cf0;
     }
+  }
+  &-item + &-item {
+    margin-left: 100rpx;
   }
   &-icon {
     display: block;
@@ -69,6 +61,27 @@ export default {
     content: '';
     display: block;
     clear: both;
+  }
+  &-main {
+    position: absolute;
+    bottom: 28rpx;
+    left: 50%;
+    margin-left: -50rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    text-align: center;
+    background: linear-gradient(#66bEFF, #0066ee);
+    .text {
+      width: 86rpx;
+      height: 86rpx;
+      line-height: 78rpx;
+      margin: 5rpx auto;
+      border: 4rpx solid rgba(255,255,255,0.8);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 48rpx;
+    }
   }
 }
 </style>

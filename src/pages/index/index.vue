@@ -10,7 +10,7 @@
 
     <div class="index-menu">
       <ul>
-        <li class="menu-item letter">
+        <li class="menu-item letter" @click="jump('../base/main')">
           <span class="icon"><i class="fa fa-envelope-open"></i></span>
           <span class="text">发现</span>
         </li>
@@ -68,6 +68,13 @@ export default {
           this.bgHeight = windowHeight + 'px'
           this.bgWidth = windowWidth + 'px'
         }
+      })
+    },
+
+    // 路由跳转
+    jump (url) {
+      wx.navigateTo({
+        url
       })
     }
   },
