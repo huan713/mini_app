@@ -34,9 +34,9 @@ export default {
   bottom: 0;
   width: 100%;
   padding: 16rpx 0;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #ddd;
   color: #8c8c8c;
-  background-color: #f5f5f5;
+  background-color: #f0f0f0;
   &-item {
     display: inline-block;
     width: 43%;
