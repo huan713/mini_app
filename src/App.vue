@@ -26,6 +26,9 @@ export default {
   justify-content: space-between;
   box-sizing: border-box;
 }
+page {
+  font-size: 32rpx;
+}
 /* this rule will be remove */
 * {
   transition: width 2s;

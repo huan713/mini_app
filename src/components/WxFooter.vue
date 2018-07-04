@@ -9,7 +9,7 @@
       <span class="wx-footer-text">我的</span>
     </div>
     <div class="wx-footer-main">
-      <div class="text">
+      <div class="text" @click="jump('../write/main')">
         +
       </div>
     </div>
@@ -24,7 +24,13 @@ export default {
       activeItem: -1
     }
   },
-  methods: {}
+  methods: {
+    jump (url) {
+      wx.navigateTo({
+        url
+      })
+    }
+  }
 }
 </script>
 

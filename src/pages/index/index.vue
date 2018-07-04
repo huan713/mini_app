@@ -4,6 +4,9 @@
     <!-- <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
     </div> -->
+    <div class="particles-animate">
+      <div id="particles-js"></div>
+    </div>
     <div class="theme-content">
       <thememain></thememain>
     </div>
@@ -40,6 +43,10 @@ export default {
 
   components: {
     card, WxFooter, thememain
+  },
+
+  mounted () {
+    // initParticles()
   },
 
   methods: {
@@ -109,6 +116,10 @@ export default {
   width: 100%;
   position: absolute;
   bottom: 40%;
+}
+
+.particles-animate {
+  height: 500rpx;
 }
 
 .index-menu {

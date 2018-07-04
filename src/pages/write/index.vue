@@ -9,17 +9,16 @@
         auto-focus
         placeholder="记录你现在的心情..."
         placeholder-style="color: #bbb;"/>
-      <visible :show.sync="formData.show"></visible>
-      <div class="write-btns">
-        <wx-button @click="formSubmit" type="info">提交</wx-button>
-      </div>
+      <!-- <visible :show.sync="formData.show"></visible> -->
     </form>
+    <footer-submit></footer-submit>
   </div>
 </template>
 
 <script>
 import Visible from '@/components/visible'
 import WxButton from '@/components/WxButton'
+import footerSubmit from '@/components/footerSubmit'
 export default {
   data () {
     return {
@@ -29,7 +28,7 @@ export default {
       }
     }
   },
-  components: { Visible, WxButton },
+  components: { Visible, WxButton, footerSubmit },
   methods: {
     formSubmit () {
       console.log(this.formData)
@@ -40,13 +39,14 @@ export default {
 
 <style lang="less">
 .write-container {
-  width: 90%;
-  margin: 40rpx auto;
 
   .write-form {
     width: 100%;
+    padding: 20rpx;
   }
   .write-area {
+    width: 90%;
+    margin: 0 auto;
     height: 280rpx;
   }
   .write-btns {

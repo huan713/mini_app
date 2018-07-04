@@ -20,12 +20,15 @@ export default {
     return {
       showCursor: true,
       showWords: '',
+      // wordsList: [
+      //   '坚持', '远方', '情怀', '小确幸', '希望', '执着', '期待', '痛并快乐', '不再犹豫', 'what ?'
+      // ],
       wordsList: [
-        '坚持', '远方', '情怀', '小确幸', '希望', '执着', '期待', '痛并快乐', '不再犹豫'
+        'Excuse me', 'what ?', 'Yes, I like you.'
       ],
       cursorLeft: '130rpx',
       adding: false,
-      loop: false
+      loop: true
     }
   },
   mounted () {
